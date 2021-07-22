@@ -1,0 +1,28 @@
+A)
+
+syscall for string request
+syscall for string storage
+
+count char until null requires research
+
+assign int register storage
+syscall int return
+
+syscall exit.
+
+
+
+B)
+syscall for input request
+
+syscall for int
+
+unknown how to accept an array 
+
+loop??
+
+offset errors in last assignment 
+
+I felt it would be inconsiderate to request help at the current conditions of prof and self
+
+bge hypothesis for selecting highest int. 

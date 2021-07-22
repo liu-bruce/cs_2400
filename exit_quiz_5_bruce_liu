@@ -1,0 +1,29 @@
+	.data
+
+	.text
+	li $t5, 0xa5d
+	li $t6 0x63c
+	and $s0, $t5, $t6
+	andi $s1, $t5, 0x5f
+	or $s2, $t5, $t6
+	ori $s3, $t5, 0x5f
+	xor $s4, $t5, $t6
+	xori $s5, $t5, 0x5f
+	nor $s6, $t5, $t6
+	not $s7, $t5
+
+	#xor swaping
+	li $t0, 0x2
+	li $t1 ,0x4
+	xor $t0,$t0,$t1
+	xor $t1,$t0,$t1  
+	xor $t0,$t0,$t1
+	
+	# stuff to  base
+	li $t4,0xaaabbbcc
+	#stuff to remove high
+	li $t2, 0xfff00000
+	not $t3,$t2
+	and $t8,$t4,$t3 
+	#rmoveing low bits
+	srl $t8,$t8,9

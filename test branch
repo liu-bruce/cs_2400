@@ -1,0 +1,23 @@
+
+.data
+pos: .asciiz "POSITIVE\n"
+nega: .asciiz "NEGATIVE\n"
+
+control_pos: .word 3
+control_neg: .word -5
+.text
+li $v0,4
+lw $t0,control_pos
+lw $t1,control_neg
+blez $t1,Negative
+la $a0,pos
+syscall
+li $v0,1
+move $a0,$t1
+syscall
+j exit
+Negative:
+la $a0,nega
+syscall
+
+exit:

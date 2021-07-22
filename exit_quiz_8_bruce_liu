@@ -1,0 +1,65 @@
+#@author: Bruce Liu
+#date: 9/18/2020
+# start time: 11:00am
+# end time:
+# hypothesis div command beq and 
+
+#error log
+# wrong order of commands for storing and moving
+#
+.data
+#odd_input_return: 	.asciiz "ODD\n"
+#even_input_return:	.asciiz "EVEN\n"
+#ascii vs asciiz experiment
+input_value_request:	.ascii  "Input value "
+			.ascii	"to be tested for "
+			.asciiz	"odd or even.\n"
+
+# experiment end
+# useful for extremely long strings
+odd_input_return: 	.asciiz "ODD\n"
+even_input_return:	.asciiz "EVEN\n"
+# used for testing
+even_constant: 		.word 2
+odd_consant: 		.word 7
+
+# initaliztion declaration
+input_value:		.word 0
+mod_return_odd:		.word 0
+mod_return_even:	.word 0
+
+
+.text
+#initalization assignement
+	
+	sw $s0,input_value
+	sw $t0,mod_return_odd
+	sw $t1,mod_return_even
+	sw $s1, even_constant
+	sw $s2, odd_constant
+	
+#input 
+	
+	li $v0,4
+	la $a0,input_value_request
+	syscall
+	
+# store to input value
+	li $v0,5
+	syscall
+	move $s0,$v0
+	
+# computation
+	#even check
+	div $s0,$s1
+	mfhi $t0
+	#odd check
+	div $s0,$s1
+	mfhi $t1
+# comparision 
+	
+	
+	
+	
+	
+	

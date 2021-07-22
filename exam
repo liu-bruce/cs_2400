@@ -1,0 +1,40 @@
+.data
+
+size:.word 10
+
+arr:.word 11, -3, 5, 0, 2, 8, -7, 3, 9, -3
+
+
+
+new_line:	.asciiz "\n"
+
+.text
+main:
+	jal intial_items
+	jal array_sum
+	jal exit
+	
+intial_items:
+la 	$s6, arr
+jr	$ra
+
+array_sum:
+beq	$t2,10,exit
+lw 	$s7, 0($s6)
+add 	$s2,$s2,$s7
+addi	$t2,$t2,1
+addi 	$s6,$s6,4
+bgez	$s7,sum_pos
+blez	$s7,sum_neg
+
+jr	$ra
+
+sum_pos:
+	add	$s3,$s3,$s7
+	jal	array_sum
+sum_neg:
+	add	$s4,$s4,$s7
+	jal	array_sum
+exit:
+li $v0,10
+syscall

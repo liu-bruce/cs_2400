@@ -1,0 +1,40 @@
+#@author Bruce Liu
+
+# start date : 10/8/2020
+
+.data
+
+string_input_request: .asciiz "Input a string: \n" 
+
+
+
+
+.text
+main:
+	
+	jal user_input_request
+	jal user_input_store
+	j exit
+user_input_request: 
+	li $v0 ,4
+	la $a0 ,string_input_request
+	syscall
+	jr $ra
+	
+user_input_store:
+	li $v0, 8
+	li $a1, 256
+	syscall
+	move $s0,$a0
+	jr $ra
+string_count:
+	lb
+	jr $ra
+count_return:
+	li $v0,1
+	move $a0,$s1
+	syscall 
+	jr $ra
+exit:
+	li $v0, 10
+	syscall

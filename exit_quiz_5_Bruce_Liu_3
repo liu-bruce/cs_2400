@@ -1,0 +1,15 @@
+.data
+.text
+li $t0, -28
+sll $t1,$t0,1
+sll $t2,$t1,2
+sll $t3,$t2,4
+
+srl $s0,$t0,1
+srl $s1,$s0,2
+srl $s2,$s1,4
+
+
+sra $a0,$t0,1
+sra $a1,$a0,2
+sra $a2,$a1,4
